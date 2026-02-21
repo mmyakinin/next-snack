@@ -1,0 +1,58 @@
+"use client";
+
+import React from "react";
+
+import { Title, ProductCard } from ".";
+
+import { useIntersection } from "react-use";
+import { useCtaegories } from "@/context/categories-context";
+
+interface Props {
+    title: string;
+    products: any[];
+    categoryId: number;
+    className?: string;
+}
+
+export const ProductsGroupList: React.FC<Props> = ({
+    title,
+    products,
+    categoryId,
+    className,
+}) => {
+    const intersectionRef = React.useRef<null>(null);
+    const { setActiveIndex } = useCtaegories();
+
+    const intersection = useIntersection(intersectionRef, {
+        threshold: 0.5,
+    });
+
+    React.useEffect(() => {
+        if (intersection?.isIntersecting) {
+            setActiveIndex(categoryId);
+        }
+    }, [categoryId, intersection?.isIntersecting]);
+
+    return (
+        <div className={className} id={title} ref={intersectionRef}>
+            <Title
+                text={title}
+                size="lg"
+                className="text-[36px] font-extrabold mb-5"
+            />
+
+            <div className="grid grid-cols-4 pb-10 gap-[50px] max-[1250px]:gap-[40px] max-[765px]:gap-[30px] max-[1250px]:grid-cols-3 max-[1000px]:grid-cols-2 max-[1000px]:pb-3 max-[600px]:grid-cols-1 max-[600px]:pb-6">
+                {products.map((product, index) => (
+                    <ProductCard
+                        key={product.id}
+                        id={product.id}
+                        name={product.name}
+                        imageUrl={product.imageUrl}
+                        description={product.description}
+                        price={product.price}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
