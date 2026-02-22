@@ -170,31 +170,31 @@ export const products = [
 
     // Напитки
     {
-        name: "Coca-Cola",
-        imageUrl:
-            "https://media.dodostatic.com/image/r:584x584/11ee92aae1aef44ca3103450855e7c0d.avif",
-        price: 2.5,
-        categoryId: 5,
-    },
-    {
-        name: "Fanta",
-        imageUrl:
-            "https://media.dodostatic.com/image/r:584x584/11ee92ab8f4aca2f97bfea8f7efc978a.avif",
-        price: 2.5,
-        categoryId: 5,
-    },
-    {
-        name: "Sprite",
-        imageUrl:
-            "https://media.dodostatic.com/image/r:584x584/11ee92ac194ab5f390837f213546c8e5.avif",
-        price: 2.5,
-        categoryId: 5,
-    },
-    {
         name: "Мохито",
         imageUrl:
             "https://media.dodostatic.com/image/r:584x584/01993cca6c797989acfd137d7251df92.avif",
         price: 3.9,
+        categoryId: 5,
+    },
+    {
+        name: "Клубничный Лимонад",
+        imageUrl:
+            "https://media.dodostatic.com/image/r:584x584/01993dbd4efe7144b275a9d1fad26ffd.avif",
+        price: 3.9,
+        categoryId: 5,
+    },
+    {
+        name: "Лимонад Манго-Клубника",
+        imageUrl:
+            "https://media.dodostatic.com/image/r:584x584/01993ec2a45971bfab02f096f3f3c0cf.avif",
+        price: 2.5,
+        categoryId: 5,
+    },
+    {
+        name: "Лимонад Малина-Гранат",
+        imageUrl:
+            "https://media.dodostatic.com/image/r:584x584/0196ca32106377e18ad2704150e655ba.avif",
+        price: 2.5,
         categoryId: 5,
     },
 ];

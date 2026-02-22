@@ -46,7 +46,9 @@ export const ProductCard: React.FC<Props> = ({
                         <span className="text-[20px] font-bold">{price} ₼</span>
                     </p>
 
-                    <Button variant={"secondary"}>В корзину</Button>
+                    <Button variant={"secondary"} className="text-[16px]">
+                        В корзину
+                    </Button>
                 </div>
             </div>
         </Link>

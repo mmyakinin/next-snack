@@ -20,7 +20,7 @@ export const Header: React.FC<Props> = ({ className }) => {
                 {/* Left Side - Logo */}
                 <Link href={"/"} className="flex items-center gap-4">
                     <Image src="/logo.png" alt="Logo" width={40} height={40} />
-                    <div>
+                    <div className="max-[600px]:hidden">
                         <h1 className="text-2xl font-black">Next Snack</h1>
                     </div>
                 </Link>
