@@ -34,12 +34,12 @@ async function up() {
         data: [
             {
                 userId: 1,
-                totalAmount: 0,
+                totalAmount: 15.5,
                 token: "qwe1234",
             },
             {
                 userId: 2,
-                totalAmount: 0,
+                totalAmount: 5,
                 token: "rtx4060",
             },
         ],

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Container, SearchInput } from "./";
+import { CartButton, Container, SearchInput } from "./";
 import { Button } from "../ui";
 
 import { ArrowRight, ShoppingCart, User } from "lucide-react";
@@ -40,20 +40,7 @@ export const Header: React.FC<Props> = ({ className }) => {
                         Войти
                     </Button>
 
-                    <Button className="group relative">
-                        <b className="text-[16px] font-bold border-r-[2px] border-solid border-[rgba(255,240,240,0.4)] pr-2">
-                            Корзина
-                        </b>
-                        <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
-                            <b className="text-[16px] font-bold pt-[2px] pl-3">
-                                3
-                            </b>
-                        </div>
-                        <ArrowRight
-                            size={20}
-                            className="absolute right-4 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0"
-                        />
-                    </Button>
+                    <CartButton />
                 </div>
             </Container>
         </header>
