@@ -16,7 +16,12 @@ export async function PATCH(
         }
 
         const cartItem = await prisma.cartItem.findFirst({
-            where: { id },
+            where: {
+                id,
+                cart: {
+                    token,
+                },
+            },
         });
 
         if (!cartItem) {
@@ -59,6 +64,9 @@ export async function DELETE(
         const cartItem = await prisma.cartItem.findFirst({
             where: {
                 id,
+                cart: {
+                    token,
+                },
             },
         });
 

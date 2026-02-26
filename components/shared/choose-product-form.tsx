@@ -11,6 +11,7 @@ interface Props {
     description?: string | null;
     price: number;
     loading?: boolean;
+    addProductInCart?: VoidFunction;
     className?: string;
 }
 
@@ -20,6 +21,7 @@ export const ChooseProductForm: React.FC<Props> = ({
     description,
     price,
     loading,
+    addProductInCart,
     className,
 }) => {
     return (
@@ -43,7 +45,10 @@ export const ChooseProductForm: React.FC<Props> = ({
                     {description && <p>{description}</p>}
                 </div>
 
-                <Button className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10">
+                <Button
+                    className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
+                    onClick={() => addProductInCart?.()}
+                >
                     Добавить в корзину за {price} ₼
                 </Button>
             </div>

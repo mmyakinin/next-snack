@@ -7,6 +7,14 @@ export const getCart = async (): Promise<CartDTO> => {
     return data;
 };
 
+export const addCartItem = async (values: {
+    productId: number;
+}): Promise<CartDTO> => {
+    const { data } = await axiosInstance.post<CartDTO>("/cart", values);
+
+    return data;
+};
+
 export const updateCartItemQuantity = async (
     cartItemId: number,
     quantity: number,

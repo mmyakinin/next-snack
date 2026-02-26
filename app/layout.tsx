@@ -1,5 +1,6 @@
 import { Nunito } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const nunito = Nunito({
     variable: "--font-nunito",
@@ -21,7 +22,10 @@ export default function MainLayout({
                     type="image/x-icon"
                 />
             </head>
-            <body className={`${nunito.variable} antialiased`}>{children}</body>
+            <body className={`${nunito.variable} antialiased`}>
+                {children}
+                <Toaster />
+            </body>
         </html>
     );
 }

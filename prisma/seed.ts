@@ -35,12 +35,12 @@ async function up() {
             {
                 userId: 1,
                 totalAmount: 15.5,
-                token: "qwe1234",
+                token: "1111",
             },
             {
                 userId: 2,
                 totalAmount: 5,
-                token: "rtx4060",
+                token: "2222",
             },
         ],
     });
