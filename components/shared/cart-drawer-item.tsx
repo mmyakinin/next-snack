@@ -1,10 +1,9 @@
 import React from "react";
 
-import { cn } from "@/lib/utils";
-
-import { CountButton } from "./count-button";
-import { Trash2Icon } from "lucide-react";
+import { CountButton } from "./";
 import { CartItemProps } from "@/@types/cart-item.types";
+import { Trash2Icon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface Props extends CartItemProps {
     onClickUpdateQuantity?: (type: "plus" | "minus") => void;
@@ -46,8 +45,14 @@ export const CartDrawerItem: React.FC<Props> = ({
                 <CountButton value={quantity} onClick={onClickUpdateQuantity} />
             </div>
 
-            <button className="absolute top-4 right-4" onClick={onClickRemove}>
-                <Trash2Icon size={20} className="text-gray-400" />
+            <button
+                className="group absolute top-4 right-4 cursor-pointer"
+                onClick={onClickRemove}
+            >
+                <Trash2Icon
+                    size={20}
+                    className="text-gray-400 group-hover:text-gray-500"
+                />
             </button>
         </li>
     );

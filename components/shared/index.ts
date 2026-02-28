@@ -1,8 +1,11 @@
 export { CartButton } from "./cart-button";
+export { CartDrawerItem } from "./cart-drawer-item";
 export { CartDrawer } from "./cart-drawer";
 export { Categories } from "./categories";
 export { ChooseProductForm } from "./choose-product-form";
 export { Container } from "./container";
+export { CountButton } from "./count-button";
+export { CountIconButton } from "./count-icon-button";
 export { Header } from "./header";
 export { ProductCard } from "./product-card";
 export { ProductsGroupList } from "./products-group-list";

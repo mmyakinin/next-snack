@@ -11,6 +11,7 @@ import { ChooseProductForm } from "../";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { useCartStore } from "@/store/cart";
 import toast from "react-hot-toast";
+import { cn } from "@/lib/utils";
 
 interface Props {
     product: Product;
@@ -21,22 +22,29 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
     const router = useRouter();
 
     const addCartItem = useCartStore((state) => state.addCartItem);
+    const loading = useCartStore((state) => state.loading);
 
     const onClickAddProduct = async () => {
         try {
             await addCartItem({
                 productId: product.id,
             });
-            toast.success("Успешно добавилось в корзину");
+            toast.success(`Добавлено: ${product.name}`);
+            router.back();
         } catch (err) {
             console.error(err);
-            toast.error("Не удалсоь добавить в корзину");
+            toast.error("Ошибка при добавлении");
         }
     };
 
     return (
         <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>
-            <DialogContent className="p-0 w-full max-w-[990px] min-h-[500px] bg-white overflow-hidden">
+            <DialogContent
+                className={cn(
+                    "p-0 w-full max-w-[990px] min-h-[500px] bg-white overflow-hidden",
+                    className,
+                )}
+            >
                 <VisuallyHidden>
                     <DialogTitle>{product.name}</DialogTitle>
                 </VisuallyHidden>
@@ -47,6 +55,7 @@ export const ChooseProductModal: React.FC<Props> = ({ product, className }) => {
                     price={product.price}
                     description={product.description}
                     addProductInCart={onClickAddProduct}
+                    loading={loading}
                 />
             </DialogContent>
         </Dialog>

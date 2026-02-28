@@ -3,18 +3,10 @@ import { NextRequest, NextResponse } from "next/server";
 import crypto from "crypto";
 import { findOrCreateCart } from "@/lib/find-or-create-cart";
 import { updateCartTotalAmount } from "@/lib/update-cart-total-amount";
-import next from "next";
 
 export async function GET(req: NextRequest) {
     try {
         const token = req.cookies.get("cartToken")?.value;
-
-        const allCarts = await prisma.cart.findMany();
-        console.log(
-            "ALL TOKENS:",
-            allCarts.map((c) => c.token),
-        );
-        console.log("REQUEST TOKEN:", token);
 
         if (!token) {
             return NextResponse.json({ totalAmount: 0, items: [] });
@@ -54,8 +46,6 @@ export async function POST(req: NextRequest) {
         }
 
         const userCart = await findOrCreateCart(token);
-
-        console.log("Token:", token, "\nUser Cart Token:", userCart.token);
 
         const data = (await req.json()) as { productId: number };
 

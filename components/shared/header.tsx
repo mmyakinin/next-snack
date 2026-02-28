@@ -10,12 +10,18 @@ import { ArrowRight, ShoppingCart, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface Props {
+    hasSearch?: boolean;
+    hasRightSide?: boolean;
     className?: string;
 }
 
-export const Header: React.FC<Props> = ({ className }) => {
+export const Header: React.FC<Props> = ({
+    hasSearch,
+    hasRightSide,
+    className,
+}) => {
     return (
-        <header className={cn("border border-b", className)}>
+        <header className={cn("border-b", className)}>
             <Container className="flex justify-between items-center py-8">
                 {/* Left Side - Logo */}
                 <Link href={"/"} className="flex items-center gap-4">
@@ -26,22 +32,26 @@ export const Header: React.FC<Props> = ({ className }) => {
                 </Link>
 
                 {/* Search Input */}
-                <div className="max-[920px]:hidden">
-                    <SearchInput />
-                </div>
+                {hasSearch && (
+                    <div className="max-[920px]:hidden">
+                        <SearchInput />
+                    </div>
+                )}
 
                 {/* Right Side */}
-                <div className="flex items-center gap-3">
-                    <Button
-                        variant={"outline"}
-                        className="flex items-center gap-1"
-                    >
-                        <User size={20} />
-                        Войти
-                    </Button>
+                {hasRightSide && (
+                    <div className="flex items-center gap-3">
+                        <Button
+                            variant={"outline"}
+                            className="flex items-center gap-1"
+                        >
+                            <User size={20} />
+                            Войти
+                        </Button>
 
-                    <CartButton />
-                </div>
+                        <CartButton />
+                    </div>
+                )}
             </Container>
         </header>
     );

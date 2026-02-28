@@ -48,6 +48,7 @@ export const ChooseProductForm: React.FC<Props> = ({
                 <Button
                     className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
                     onClick={() => addProductInCart?.()}
+                    loading={loading}
                 >
                     Добавить в корзину за {price} ₼
                 </Button>
