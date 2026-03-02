@@ -25,8 +25,8 @@ export const ChooseProductForm: React.FC<Props> = ({
     className,
 }) => {
     return (
-        <div className={cn(className, "flex flex-1")}>
-            <div className="flex items-center justify-center flex-1 relative w-full">
+        <div className={cn(className, "flex flex-1 max-[768px]:flex-col")}>
+            <div className="flex flex-1 items-center justify-center flex-1 relative">
                 <img
                     src={imageUrl}
                     alt={name}
@@ -34,7 +34,7 @@ export const ChooseProductForm: React.FC<Props> = ({
                 />
             </div>
 
-            <div className="flex flex-col justify-between w-[490px] bg-[#f7f6f5] p-8">
+            <div className="flex flex-1 flex-col justify-between w-full bg-[#f7f6f5] p-8">
                 <div>
                     <Title
                         text={name}

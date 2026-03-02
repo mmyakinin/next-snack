@@ -4,7 +4,7 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Category } from "@prisma/client";
-import { useCtaegories } from "@/context/categories-context";
+import { useCategories } from "@/context/categories-context";
 
 interface Props {
     items: Category[];
@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const Categories: React.FC<Props> = ({ items, className }) => {
-    const { activeIndex } = useCtaegories();
+    const { activeId } = useCategories();
 
     return (
         <div
@@ -21,19 +21,21 @@ export const Categories: React.FC<Props> = ({ items, className }) => {
                 className,
             )}
         >
-            {items.map((item, index) => (
-                <Link
-                    key={item.id}
-                    href={`/#${item.name}`}
-                    className={cn(
-                        "flex items-center font-bold h-11 rounded-2xl px-5",
-                        activeIndex === item.id &&
-                            "bg-white shadow-md shadow-gray-200 text-primary",
-                    )}
-                >
-                    {item.name}
-                </Link>
-            ))}
+            {items.map((item, index) => {
+                return (
+                    <Link
+                        key={item.id}
+                        href={`/#${item.name}`}
+                        className={cn(
+                            "flex items-center font-bold h-11 rounded-2xl px-5",
+                            activeId === item.id &&
+                                "bg-white shadow-md shadow-gray-200 text-primary",
+                        )}
+                    >
+                        {item.name}
+                    </Link>
+                );
+            })}
         </div>
     );
 };

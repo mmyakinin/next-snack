@@ -13,8 +13,10 @@ export default async function Home() {
         <CategoriesProvider>
             <div className="sticky top-0 z-20 bg-white shadow-lg shadow-black/5">
                 <Container>
-                    <div className="py-4">
-                        <Categories items={categories} />
+                    <div className="py-4 overflow-x-auto">
+                        <div className="inline-block p-2 overflow-visible">
+                            <Categories items={categories} />
+                        </div>
                     </div>
                 </Container>
             </div>

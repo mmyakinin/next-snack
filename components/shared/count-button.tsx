@@ -5,7 +5,6 @@ import { cn } from "@/lib/utils";
 
 export interface CountButtonProps {
     value?: number;
-    size?: "sm" | "lg";
     onClick?: (type: "plus" | "minus") => void;
     className?: string;
 }
@@ -14,7 +13,6 @@ export const CountButton: React.FC<CountButtonProps> = ({
     className,
     onClick,
     value = 1,
-    size = "sm",
 }) => {
     return (
         <div
@@ -26,17 +24,12 @@ export const CountButton: React.FC<CountButtonProps> = ({
             <CountIconButton
                 onClick={() => onClick?.("minus")}
                 disabled={value === 1}
-                size={size}
                 type="minus"
             />
 
-            <b className={size === "sm" ? "text-sm" : "text-md"}>{value}</b>
+            <b className="text-[18px]">{value}</b>
 
-            <CountIconButton
-                onClick={() => onClick?.("plus")}
-                size={size}
-                type="plus"
-            />
+            <CountIconButton onClick={() => onClick?.("plus")} type="plus" />
         </div>
     );
 };

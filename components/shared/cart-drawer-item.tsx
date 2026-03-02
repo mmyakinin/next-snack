@@ -31,16 +31,15 @@ export const CartDrawerItem: React.FC<Props> = ({
             <div className="flex items-start gap-6 pb-3 border-b-[2px] border-solid border-[#a1a1a1]">
                 <img src={imageUrl} alt={name} width={75} height={75} />
 
-                <div className="flex flex-col">
-                    <h4 className="pb-1 text-[16px] font-bold max-w-[250px]">
+                <div className="flex flex-col justify-center h-full">
+                    <h4 className="pb-1 text-[20px] font-bold max-w-[200px]">
                         {name}
                     </h4>
-                    <p className="text-[#a1a1a1] text-[14px] ">1 шт, 150 гр</p>
                 </div>
             </div>
 
             <div className="flex justify-between items-center">
-                <p className="font-bold text-[16px]">{price} ₼</p>
+                <p className="font-bold text-[20px]">{price} ₼</p>
 
                 <CountButton value={quantity} onClick={onClickUpdateQuantity} />
             </div>

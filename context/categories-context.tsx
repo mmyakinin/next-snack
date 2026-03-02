@@ -3,8 +3,8 @@
 import React, { useState, useContext, createContext } from "react";
 
 interface CategoriesContextType {
-    activeIndex: number | null;
-    setActiveIndex: (id: number) => void;
+    activeId: number | null;
+    setActiveId: (id: number) => void;
 }
 
 const CategoriesContext = createContext<CategoriesContextType | null>(null);
@@ -14,16 +14,16 @@ export const CategoriesProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [activeId, setActiveId] = useState<number | null>(null);
 
     return (
-        <CategoriesContext.Provider value={{ activeIndex, setActiveIndex }}>
+        <CategoriesContext.Provider value={{ activeId, setActiveId }}>
             {children}
         </CategoriesContext.Provider>
     );
 };
 
-export const useCtaegories = () => {
+export const useCategories = () => {
     const context = useContext(CategoriesContext);
 
     if (!context) {

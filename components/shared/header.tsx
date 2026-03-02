@@ -16,12 +16,12 @@ interface Props {
 }
 
 export const Header: React.FC<Props> = ({
-    hasSearch,
-    hasRightSide,
+    hasSearch = true,
+    hasRightSide = true,
     className,
 }) => {
     return (
-        <header className={cn("border-b", className)}>
+        <header className={cn(className)}>
             <Container className="flex justify-between items-center py-8">
                 {/* Left Side - Logo */}
                 <Link href={"/"} className="flex items-center gap-4">
@@ -49,7 +49,9 @@ export const Header: React.FC<Props> = ({
                             Войти
                         </Button>
 
-                        <CartButton />
+                        <div className="max-[768px]:hidden">
+                            <CartButton />
+                        </div>
                     </div>
                 )}
             </Container>

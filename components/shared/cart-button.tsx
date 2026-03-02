@@ -20,8 +20,8 @@ export const CartButton: React.FC<Props> = ({ className }) => {
         <CartDrawer>
             <Button
                 className={cn(
-                    "group relative",
-                    { "w-[130px]": loading },
+                    "group relative w-[140px]",
+                    { "w-[140px]": loading },
                     className,
                 )}
                 loading={loading}
