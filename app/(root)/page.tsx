@@ -1,4 +1,5 @@
 import { Container, Categories, ProductsGroupList } from "@/components/shared";
+import { MobileCartButton } from "@/components/shared/mobile-cart-button";
 import { CategoriesProvider } from "@/context/categories-context";
 import { prisma } from "@/prisma/prisma-client";
 
@@ -34,6 +35,7 @@ export default async function Home() {
                             );
                         })}
                     </div>
+                    <MobileCartButton />
                 </div>
             </Container>
         </CategoriesProvider>
