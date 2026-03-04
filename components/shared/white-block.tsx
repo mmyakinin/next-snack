@@ -18,7 +18,7 @@ export const WhiteBlock: React.FC<React.PropsWithChildren<Props>> = ({
     return (
         <div
             className={cn(
-                "rounded-4xl bg-white p-[35px] pb-0 w-[752px] max-w-[752px] max-[787px]:w-screen max-[787px]:rounded-xl",
+                "rounded-xl bg-white p-[35px] pb-0 w-[752px] max-w-[752px] max-[752px]:w-full max-[787px]:rounded-xl",
                 className,
             )}
         >

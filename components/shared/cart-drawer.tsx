@@ -14,28 +14,17 @@ import {
 import { CartDrawerItem } from "./";
 import { Button } from "../ui";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useCartStore } from "@/store/cart";
 import Image from "next/image";
+import { useCart } from "@/lib/use-cart";
 
-interface Props {
-    className?: string;
-}
-
-export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
-    children,
-    className,
-}) => {
-    const totalAmount = useCartStore((state) => state.totalAmount);
-    const items = useCartStore((state) => state.items);
-    const fetchCartItems = useCartStore((state) => state.fetchCartItems);
-    const updateCartItemQuantity = useCartStore(
-        (state) => state.updateCartItemQuantity,
-    );
-    const removeCartItem = useCartStore((state) => state.removeCartItem);
-
-    React.useEffect(() => {
-        fetchCartItems();
-    }, [fetchCartItems]);
+export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
+    const {
+        loading,
+        totalAmount,
+        items,
+        updateCartItemQuantity,
+        removeCartItem,
+    } = useCart();
 
     const onClickCounButton = (
         id: number,
@@ -44,10 +33,6 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
     ) => {
         const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
         updateCartItemQuantity(id, newQuantity);
-    };
-
-    const onClickRemoveCartItem = (id: number) => {
-        removeCartItem(id);
     };
 
     return (
@@ -83,7 +68,12 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
                                             )
                                         }
                                         onClickRemove={() =>
-                                            onClickRemoveCartItem(item.id)
+                                            removeCartItem(item.id)
+                                        }
+                                        className={
+                                            loading
+                                                ? "opacity-60 pointer-events-none"
+                                                : ""
                                         }
                                     />
                                 );
@@ -137,7 +127,8 @@ export const CartDrawer: React.FC<React.PropsWithChildren<Props>> = ({
 
                         <SheetClose>
                             <Button className="w-56 h-12 text-base">
-                                <ArrowLeft /> <span className="p-2">Вернуться назад</span> 
+                                <ArrowLeft />{" "}
+                                <span className="p-2">Вернуться назад</span>
                             </Button>
                         </SheetClose>
                     </div>

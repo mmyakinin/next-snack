@@ -83,6 +83,7 @@ html {
 * {
     font-family: var(--font-nunito), sans-serif;
     outline: none;
+    box-sizing: border-box;
 }
 
 .scrollbar::-webkit-scrollbar {

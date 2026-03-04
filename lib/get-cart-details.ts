@@ -24,7 +24,7 @@ export const getCartDetails = (data: CartDTO): ReturnProps => {
     }));
 
     return {
-        totalAmount: data.totalAmount,
+        totalAmount: Number(data.totalAmount.toFixed(2)),
         items,
     };
 };

@@ -25,32 +25,35 @@ export const ChooseProductForm: React.FC<Props> = ({
     className,
 }) => {
     return (
-        <div className={cn(className, "flex flex-1 max-[768px]:flex-col")}>
-            <div className="flex flex-1 items-center justify-center flex-1 relative">
+        <div
+            className={cn(
+                className,
+                "flex max-[768px]:flex-col overflow-y-auto",
+            )}
+        >
+            <div className="flex flex-1 min-w-0 items-center justify-center p-8">
                 <img
                     src={imageUrl}
                     alt={name}
-                    className="relative left-2 top-2 transition-all z-10 duration-300 w-[350px] h-[350px]"
+                    className="w-full max-w-[350px] aspect-square object-contain"
                 />
             </div>
 
-            <div className="flex flex-1 flex-col justify-between w-full bg-[#f7f6f5] p-8">
+            <div className="flex flex-1 min-w-0 flex-col justify-between w-full bg-[#f7f6f5] p-8">
                 <div>
-                    <Title
-                        text={name}
-                        size="lg"
-                        className="font-extrabold mb-1 pb-2"
-                    />
+                    <h2 className="text-[32px] max-[756]:text-[24px] ys-display font-extrabold mb-3">
+                        {name}
+                    </h2>
 
                     {description && <p>{description}</p>}
                 </div>
 
                 <Button
-                    className="h-[55px] px-10 text-base rounded-[18px] w-full mt-10"
+                    className="h-[55px] px-10 text-base font-bold rounded-[18px] w-full mt-10"
                     onClick={() => addProductInCart?.()}
                     loading={loading}
                 >
-                    Добавить в корзину за {price} ₼
+                    В корзину за {price} ₼
                 </Button>
             </div>
         </div>
