@@ -12,6 +12,11 @@ type ReturnedProps = {
     updateCartItemQuantity: (id: number, quantity: number) => Promise<void>;
     addCartItem: (values: { productId: number }) => Promise<void>;
     removeCartItem: (id: number) => Promise<void>;
+    onClickCountButton: (
+        id: number,
+        quantity: number,
+        type: "plus" | "minus",
+    ) => Promise<void>;
 };
 
 export const useCart = (): ReturnedProps => {
@@ -21,5 +26,17 @@ export const useCart = (): ReturnedProps => {
         cartStote.fetchCartItems();
     }, [cartStote.fetchCartItems]);
 
-    return cartStote;
+    // 
+    
+    const onClickCountButton = async (
+        id: number,
+        quantity: number,
+        type: "plus" | "minus",
+    ) => {
+        const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
+
+        await cartStote.updateCartItemQuantity(id, newQuantity);
+    };
+
+    return { ...cartStote, onClickCountButton };
 };

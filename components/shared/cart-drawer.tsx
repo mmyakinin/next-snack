@@ -15,25 +15,11 @@ import { CartDrawerItem } from "./";
 import { Button } from "../ui";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useCart } from "@/lib/use-cart";
+import { useCart } from "@/hooks/use-cart";
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
-    const {
-        loading,
-        totalAmount,
-        items,
-        updateCartItemQuantity,
-        removeCartItem,
-    } = useCart();
-
-    const onClickCounButton = (
-        id: number,
-        quantity: number,
-        type: "plus" | "minus",
-    ) => {
-        const newQuantity = type === "plus" ? quantity + 1 : quantity - 1;
-        updateCartItemQuantity(id, newQuantity);
-    };
+    const { loading, totalAmount, items, removeCartItem, onClickCountButton } =
+        useCart();
 
     return (
         <Sheet>
@@ -61,7 +47,7 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
                                         price={item.price}
                                         quantity={item.quantity}
                                         onClickUpdateQuantity={(type) =>
-                                            onClickCounButton(
+                                            onClickCountButton(
                                                 item.id,
                                                 item.quantity,
                                                 type,
