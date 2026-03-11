@@ -20,14 +20,14 @@ export default function MainLayout({
             <head>
                 <link
                     rel="shortcut icon"
-                    href="/logo.png"
+                    href="/kebab.png"
                     type="image/x-icon"
                 />
             </head>
             <body className={`${nunito.variable} antialiased`}>
                 {children}
                 <Toaster />
-                <NextTopLoader color="#ff5e00" />
+                <NextTopLoader color="#e40014" />
             </body>
         </html>
     );

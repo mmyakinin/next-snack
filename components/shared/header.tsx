@@ -24,8 +24,8 @@ export const Header: React.FC<Props> = ({
         <header className={cn(className)}>
             <Container className="flex justify-between items-center py-8">
                 {/* Left Side - Logo */}
-                <Link href={"/"} className="flex items-center gap-4">
-                    <Image src="/logo.png" alt="Logo" width={40} height={40} />
+                <Link href={"/"} className="flex items-center gap-2">
+                    <Image src="/kebab.png" alt="Logo" width={45} height={45} />
                     <div className="max-[600px]:hidden">
                         <h1 className="text-2xl font-black">Next Snack</h1>
                     </div>

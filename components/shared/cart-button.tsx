@@ -2,9 +2,9 @@
 
 import React from "react";
 
-import { Button } from "../ui";
-import { CartDrawer } from "./";
 import { useCartStore } from "@/store/cart";
+import { CartDrawer } from "./";
+import { Button } from "../ui";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 

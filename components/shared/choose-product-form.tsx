@@ -39,7 +39,7 @@ export const ChooseProductForm: React.FC<Props> = ({
                 />
             </div>
 
-            <div className="flex flex-1 min-w-0 flex-col justify-between w-full bg-[#f7f6f5] p-8">
+            <div className="flex flex-1 min-w-0 flex-col justify-between w-full bg-primary-foreground p-8">
                 <div>
                     <h2 className="text-[32px] max-[756]:text-[24px] ys-display font-extrabold mb-3">
                         {name}

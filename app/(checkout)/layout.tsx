@@ -11,7 +11,7 @@ export default function CheckoutLayout({
     children: React.ReactNode;
 }) {
     return (
-        <main className="min-h-screen bg-[#f4f1ee]">
+        <main className="min-h-screen bg-primary-foreground">
             <Header hasSearch={false} hasRightSide={false} />
             {children}
         </main>

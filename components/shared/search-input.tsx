@@ -82,7 +82,7 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
                                 onClick={onClickItem}
                             >
                                 <img
-                                    className="rounded-sm h-8 w-8"
+                                    className="rounded-sm h-10 w-10"
                                     src={item.imageUrl}
                                     alt={item.name}
                                 />

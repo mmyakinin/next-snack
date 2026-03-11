@@ -1,11 +1,12 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import React from "react";
-import { CartDrawer } from "./cart-drawer";
+
 import { useCartStore } from "@/store/cart";
+import { CartDrawer } from "./cart-drawer";
 import { Button } from "../ui";
 import { ShoppingBasket } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface Props {
     className?: string;
@@ -24,7 +25,7 @@ export const MobileCartButton: React.FC<Props> = ({ className }) => {
         >
             <CartDrawer>
                 <Button className="w-[60px] h-[60px] bg-white shadow-xl rounded-full relative">
-                    <p className="absolute top-0 right-0 w-6 h-6 bg-orange-500 text-white rounded-full flex items-center justify-center">
+                    <p className="absolute top-0 right-0 w-6 h-6 bg-primary text-white rounded-full flex items-center justify-center">
                         {items.length}
                     </p>
                     <ShoppingBasket size={48} className="text-primary" />

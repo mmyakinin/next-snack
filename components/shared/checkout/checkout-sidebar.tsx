@@ -1,7 +1,7 @@
 import React from "react";
 
-import { CheckoutItemDetails } from "./";
-import { Button } from "../ui";
+import { CheckoutItemDetails } from "..";
+import { Button } from "../../ui";
 import { Package, Percent, Truck } from "lucide-react";
 
 interface Props {
@@ -24,7 +24,7 @@ export const CheckoutSidebar: React.FC<Props> = ({
     const totalPrice = (totalAmount + taxAmount + deliveryAmount).toFixed(2);
 
     return (
-        <div className="w-[450px] rounded-4xl bg-white p-[40px] sticky top-4 z-10 max-[1300px]:w-screen max-[1300px]:max-w-[752px] max-[752px]:w-screen max-[752px]:rounded-none">
+        <div className="w-[450px] rounded-4xl bg-white p-[40px] max-[576px]:px-4 sticky top-4 z-10 max-[1300px]:w-screen max-[1300px]:max-w-[752px] max-[752px]:w-screen max-[752px]:rounded-none">
             <div className="flex flex-col gap-4 pb-5">
                 <CheckoutItemDetails
                     beginAdortment={
@@ -53,7 +53,10 @@ export const CheckoutSidebar: React.FC<Props> = ({
                 <h4 className="text-[24px] font-extrabold ">{totalPrice} ₼</h4>
             </div>
             <div className="pt-8">
-                <Button className="w-full text-base font-bold h-[50px]">
+                <Button
+                    className="w-full text-base font-bold h-[50px]"
+                    type="submit"
+                >
                     Оформить заказ
                 </Button>
             </div>

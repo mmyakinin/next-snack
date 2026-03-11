@@ -3,7 +3,7 @@
 import React, { useState, useContext, createContext } from "react";
 
 interface CategoriesContextType {
-    activeId: number | null;
+    activeId: number;
     setActiveId: (id: number) => void;
 }
 
@@ -14,7 +14,7 @@ export const CategoriesProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [activeId, setActiveId] = useState<number | null>(null);
+    const [activeId, setActiveId] = useState<number>(1);
 
     return (
         <CategoriesContext.Provider value={{ activeId, setActiveId }}>

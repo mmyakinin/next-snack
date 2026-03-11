@@ -12,12 +12,12 @@ interface Props {
 }
 
 export const Categories: React.FC<Props> = ({ items, className }) => {
-    const { activeId } = useCategories();
+    const { activeId, setActiveId } = useCategories();
 
     return (
         <div
             className={cn(
-                "inline-flex gap-1 bg-gray-100 p-1 rounded-2xl",
+                "inline-flex gap-1 bg-gray-100 p-1 rounded-3xl",
                 className,
             )}
         >
@@ -26,6 +26,7 @@ export const Categories: React.FC<Props> = ({ items, className }) => {
                     <Link
                         key={item.id}
                         href={`/#${item.name}`}
+                        onClick={() => setActiveId(item.id)}
                         className={cn(
                             "flex items-center font-bold h-11 rounded-2xl px-5",
                             activeId === item.id &&
