@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 interface Props {
     title?: string;
-    value?: number;
+    value?: React.ReactNode;
     beginAdortment: React.ReactNode;
     className?: string;
 }
@@ -21,7 +21,7 @@ export const CheckoutItemDetails: React.FC<Props> = ({
                 {beginAdortment}
                 <p className="text-[18px] pl-[14px]">{title}</p>
             </div>
-            <h4 className="text-[18px] font-bold">{value} ₼</h4>
+            <h4 className="text-[18px] font-bold">{value}</h4>
         </div>
     );
 };

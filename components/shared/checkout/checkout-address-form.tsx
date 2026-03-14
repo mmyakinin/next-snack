@@ -1,8 +1,6 @@
 import React from "react";
 
-import { FormInput, WhiteBlock } from "..";
-import { Textarea } from "@/components/ui";
-import { FormTextarea } from "../form/form-textarea";
+import { FormInput, FormTextarea, WhiteBlock } from "..";
 
 interface Props {
     className?: string;

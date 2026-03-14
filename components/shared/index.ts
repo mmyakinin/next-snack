@@ -20,6 +20,6 @@ export { WhiteBlock } from "./white-block";
 
 export { ChooseProductModal } from "./modals/choose-product-modal";
 
-export { FormInput } from "./form/form-input";
-
+export * from "./form";
 export * from "./checkout";
+export * from "./email-tempates";

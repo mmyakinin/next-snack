@@ -97,9 +97,9 @@ model Order{
 
     token String
 
-    totalAmount Int
+    totalAmount Float
     status OrderStatus
-    paymentId String
+    paymentId String?
 
     items Json
 

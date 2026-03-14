@@ -16,6 +16,7 @@ import { Button } from "../ui";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useCart } from "@/hooks/use-cart";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
 export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
     const { loading, totalAmount, items, removeCartItem, onClickCountButton } =
@@ -94,30 +95,35 @@ export const CartDrawer: React.FC<React.PropsWithChildren> = ({ children }) => {
                 )}
 
                 {totalAmount === 0 && (
-                    <div className="flex flex-col justify-center items-center h-full text-center gap-4">
-                        <Image
-                            src={"/assets/images/empty-box.png"}
-                            alt="Пустая Коробка"
-                            width={150}
-                            height={150}
-                        />
-                        <div className="text-center flex flex-col justify-center items-center gap-1">
-                            <p className="text-[24px] font-semibold">
-                                Пока тут пусто
-                            </p>
-                            <p className="text-[16px] opacity-70 w-[70%]">
-                                Добавьте хотя бы одну позицию, чтобы совершить
-                                заказ
-                            </p>
-                        </div>
+                    <>
+                        <VisuallyHidden>
+                            <SheetTitle></SheetTitle>
+                        </VisuallyHidden>
+                        <div className="flex flex-col justify-center items-center h-full text-center gap-4">
+                            <Image
+                                src={"/assets/images/empty-box.png"}
+                                alt="Пустая Коробка"
+                                width={150}
+                                height={150}
+                            />
+                            <div className="text-center flex flex-col justify-center items-center gap-1">
+                                <p className="text-[24px] font-semibold">
+                                    Пока тут пусто
+                                </p>
+                                <p className="text-[16px] opacity-70 w-[70%]">
+                                    Добавьте хотя бы одну позицию, чтобы
+                                    совершить заказ
+                                </p>
+                            </div>
 
-                        <SheetClose>
-                            <Button className="w-56 h-12 text-base">
-                                <ArrowLeft />{" "}
-                                <span className="p-2">Вернуться назад</span>
-                            </Button>
-                        </SheetClose>
-                    </div>
+                            <SheetClose asChild>
+                                <Button className="w-56 h-12 text-base">
+                                    <ArrowLeft />{" "}
+                                    <span className="p-2">Вернуться назад</span>
+                                </Button>
+                            </SheetClose>
+                        </div>
+                    </>
                 )}
             </SheetContent>
         </Sheet>

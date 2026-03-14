@@ -27,10 +27,15 @@ export const CheckoutItem: React.FC<Props> = ({
             )}
         >
             <div className="flex max-[752px]:flex-col  gap-4 items-center">
-                <img src={imageUrl} alt={name} className="w-[65px] h-[65px] max-[752px]:w-[80px] max-[752px]:h-[80px]" />
+                <img
+                    src={imageUrl}
+                    alt={name}
+                    className="w-[65px] h-[65px] max-[752px]:w-[80px] max-[752px]:h-[80px]"
+                />
                 <div className="flex flex-col gap-1 w-[350px] max-w-[350px] max-[752px]:w-[200px]">
-                    <h4 className="text-[18px] font-bold max-[752px]:text-center">{name}</h4>
-                    {/* <p className="text-[#a1a1a1] text-[14px]"></p> */}
+                    <h4 className="text-[18px] font-bold max-[752px]:text-center">
+                        {name}
+                    </h4>
                 </div>
             </div>
             <p className="text-[18px] font-bold">{price} ₼</p>
@@ -38,6 +43,7 @@ export const CheckoutItem: React.FC<Props> = ({
                 <CountButton value={quantity} onClick={onClickUpdateQuantity} />
 
                 <button
+                    type="button"
                     className="group cursor-pointer"
                     onClick={onClickRemove}
                 >
