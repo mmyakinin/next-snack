@@ -14,12 +14,13 @@ export { Header } from "./header";
 export { MobileCartButton } from "./mobile-cart-button";
 export { ProductCard } from "./product-card";
 export { ProductsGroupList } from "./products-group-list";
+export { ProfileButton } from "./profile-button";
+export { Providers } from "./providers";
 export { SearchInput } from "./search-input";
 export { Title } from "./title";
 export { WhiteBlock } from "./white-block";
 
-export { ChooseProductModal } from "./modals/choose-product-modal";
-
+export * from "./modals";
 export * from "./form";
 export * from "./checkout";
 export * from "./email-tempates";

@@ -35,6 +35,12 @@ export const FormInput: React.FC<Props> = ({
 
     return (
         <div className="w-full">
+            {label && (
+                <p className="text-base font-medium">
+                    {label}{" "}
+                    {required && <span className="text-red-500">*</span>}
+                </p>
+            )}
             <div className="relative">
                 <Input
                     placeholder={placeholder}

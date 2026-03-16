@@ -1,8 +1,7 @@
 import "./globals.css";
 
+import { Providers } from "@/components/shared";
 import { Nunito } from "next/font/google";
-import { Toaster } from "react-hot-toast";
-import NextTopLoader from "nextjs-toploader";
 
 const nunito = Nunito({
     variable: "--font-nunito",
@@ -25,9 +24,7 @@ export default function MainLayout({
                 />
             </head>
             <body className={`${nunito.variable} antialiased`}>
-                {children}
-                <Toaster />
-                <NextTopLoader color="#e40014" />
+                <Providers>{children}</Providers>
             </body>
         </html>
     );

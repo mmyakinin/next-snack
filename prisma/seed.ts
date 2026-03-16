@@ -10,14 +10,14 @@ async function up() {
                 email: "example@gmail.com",
                 password: hashSync("MYaksyeager071623$", 10),
                 role: "ADMIN",
-                verifed: true,
+                verified: true,
             },
             {
                 fullName: "Fuad Mammadov",
                 email: "user@example.com",
                 password: hashSync("12345678", 10),
                 role: "USER",
-                verifed: true,
+                verified: true,
             },
         ],
     });

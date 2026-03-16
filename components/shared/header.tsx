@@ -1,11 +1,16 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { CartButton, Container, SearchInput } from "./";
-import { Button } from "../ui";
-
-import { ArrowRight, ShoppingCart, User } from "lucide-react";
+import {
+    AuthModal,
+    CartButton,
+    Container,
+    ProfileButton,
+    SearchInput,
+} from "./";
 
 import { cn } from "@/lib/utils";
 
@@ -20,6 +25,8 @@ export const Header: React.FC<Props> = ({
     hasRightSide = true,
     className,
 }) => {
+    const [openAuthModal, setOpenAuthModal] = React.useState<boolean>(false);
+
     return (
         <header className={cn(className)}>
             <Container className="flex justify-between items-center py-8">
@@ -41,13 +48,22 @@ export const Header: React.FC<Props> = ({
                 {/* Right Side */}
                 {hasRightSide && (
                     <div className="flex items-center gap-3">
-                        <Button
+                        <AuthModal
+                            open={openAuthModal}
+                            onClose={() => setOpenAuthModal(false)}
+                        />
+
+                        {/* <Button
                             variant={"outline"}
                             className="flex items-center gap-1"
                         >
                             <User size={20} />
                             Войти
-                        </Button>
+                        </Button> */}
+
+                        <ProfileButton
+                            onClickProfile={() => setOpenAuthModal(true)}
+                        />
 
                         <div className="max-[768px]:hidden">
                             <CartButton />
