@@ -5,7 +5,7 @@ import { CheckoutFormValues } from "@/constants/checkout-form-schema";
 import { sendEmail } from "@/lib/send-email";
 import { prisma } from "@/prisma/prisma-client";
 import { CartItemDTO } from "@/services/dto/cart.dto";
-import { OrderStatus } from "@prisma/client";
+import { OrderStatus, Prisma } from "@prisma/client";
 import { cookies } from "next/headers";
 
 export async function createOrder(data: CheckoutFormValues) {
@@ -88,3 +88,7 @@ export async function createOrder(data: CheckoutFormValues) {
         throw err;
     }
 }
+
+export async function updateUserInfo(body: Prisma.UserUpdateInput){
+    
+};

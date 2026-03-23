@@ -10,12 +10,14 @@ interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
     name: string;
     label?: string;
     required?: boolean;
+    readOnly?: boolean;
 }
 
 export const FormInput: React.FC<Props> = ({
     name,
     label,
     required,
+    readOnly,
     placeholder,
     ...props
 }) => {
@@ -36,7 +38,7 @@ export const FormInput: React.FC<Props> = ({
     return (
         <div className="w-full">
             {label && (
-                <p className="text-base font-medium">
+                <p className="text-base font-medium pb-1">
                     {label}{" "}
                     {required && <span className="text-red-500">*</span>}
                 </p>
@@ -44,11 +46,12 @@ export const FormInput: React.FC<Props> = ({
             <div className="relative">
                 <Input
                     placeholder={placeholder}
+                    readOnly={readOnly}
                     {...register(name)}
                     {...props}
                 />
 
-                {value && (
+                {value && !readOnly && (
                     <ClearButton
                         onClick={onClickClear}
                         className="-translate-y-1/2"

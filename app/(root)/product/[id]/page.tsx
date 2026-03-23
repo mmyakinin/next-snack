@@ -1,9 +1,5 @@
-export default async function ProductPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
-}) {
-    const { id } = await params;
+import { redirect } from "next/navigation";
 
-    return <h1>Product Page {id}</h1>;
+export default function ProductPage() {
+    return redirect("/");
 }
